@@ -29,4 +29,17 @@ void main() {
       expect(StringCalculator('//?\n1?2?3?4?5'), equals(15));
     });
   });
+
+  group('negative number cases', () {
+    test('test 1: should throw exception with negative numbers listed', () {
+      expect(
+          () => StringCalculator('-1,2,-3'),
+          throwsA(isA<ArgumentError>().having(
+              (e) => e.message, 'message', 'negatives not allowed: -1, -3')));
+      expect(
+          () => StringCalculator('-1,-2,-3,-4,-5'),
+          throwsA(isA<ArgumentError>().having((e) => e.message, 'message',
+              'negatives not allowed: -1, -2, -3, -4, -5')));
+    });
+  });
 }
