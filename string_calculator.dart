@@ -3,5 +3,5 @@ int StringCalculator(String input) {
   if (input.isEmpty) {
     return 0;
   }
-  return input.split(delimiter).map(int.parse).reduce((acc, curr) => acc + curr);
+  return input.split(RegExp('[\n${delimiter}]')).map(int.parse).reduce((acc, curr) => acc + curr);
 }
