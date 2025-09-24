@@ -21,4 +21,12 @@ void main() {
       expect(StringCalculator('1\n2\n3,4\n5'), equals(15));
     });
   });
+
+  group('custom delimiter cases', () {
+    test('test 1: should return the sum of the numbers in the string', () {
+      expect(StringCalculator('//;\n1;2'), equals(3));
+      expect(StringCalculator('//;\n1;2;3;4;5'), equals(15));
+      expect(StringCalculator('//?\n1?2?3?4?5'), equals(15));
+    });
+  });
 }
